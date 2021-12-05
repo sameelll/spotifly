@@ -5,8 +5,7 @@ export default function Home() {
     <div className="bg-black h-screen overflow-hidden">
       <main> 
         <Sidebar /> 
-
-        
+       
       </main>
 
       <div>
