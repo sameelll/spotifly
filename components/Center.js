@@ -3,6 +3,7 @@ import { useSession } from "next-auth/react"
 import { useEffect, useState } from "react";
 import { shuffle } from "lodash";
 
+// Gradient colors from...to-black
 const colors = [
     "from-indigo-500",
     "from-blue-500",
@@ -16,8 +17,10 @@ const colors = [
 function Center() {
     const { data: session } = useSession();
 
+    // States
     const [color, setColor] = useState(null)
 
+    // Hooks
     useEffect(() => {
         setColor(shuffle(colors).pop());
     }, [])
@@ -34,7 +37,6 @@ function Center() {
             <section className={`flex items-end space-x-7 bg-gradient-to-b to-black ${color} h-80 text-white p-8`}>
                 <h1>hello</h1>
             </section>
-
         </div>
     )
 }
