@@ -1,5 +1,5 @@
+// Heroicon icons
 import {
-    HomeIcon,
     SearchIcon,
     LibraryIcon,
     PlusCircleIcon,
@@ -12,12 +12,15 @@ import { useEffect, useState } from "react";
 import useSpotify from '../hooks/useSpotify';
 
 function Sidebar() {
+    // Custom Hook 'useSpotify' enables to create spotifyApi inside this component
     const spotifyApi = useSpotify();
 
     const { data: session, status } = useSession();
 
+    // States
     const [playlists, setPLaylists] = useState([]);
 
+    // Hooks
     useEffect(() => {
         if (spotifyApi.getAccessToken()) {
             spotifyApi.getUserPlaylists().then((data) => {
