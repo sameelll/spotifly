@@ -9,6 +9,8 @@ import {
 
 import { signOut, useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
+import { useRecoilState } from "recoil";
+import { playlistIdState } from "../atoms/playlistAtom";
 import useSpotify from '../hooks/useSpotify';
 
 function Sidebar() {
@@ -19,7 +21,7 @@ function Sidebar() {
 
     // States
     const [playlists, setPLaylists] = useState([]);
-    const [playlistId, setPlaylistId] = useState(null);
+    const [playlistId, setPlaylistId] = useRecoilState(playlistIdState);
 
     console.log("you picked playlist >>>", playlistId);
 
