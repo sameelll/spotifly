@@ -1,5 +1,5 @@
 // Hooks
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // Atoms (Recoil)
 import { useRecoilState } from "recoil";
 import { currentTrackIdState } from "../atoms/songAtom";
@@ -29,7 +29,7 @@ function useSongInfo() {
                 setSongInfo(trackInfo);
             }
         })();
-    }, [currentIdTrack, spotifyApi])
+    }, [currentIdTrack, spotifyApi]);
 
     return songInfo;
 }
