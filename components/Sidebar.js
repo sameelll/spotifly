@@ -6,22 +6,26 @@ import {
     HeartIcon,
     RssIcon
 } from "@heroicons/react/outline";
-
+// Session provider
 import { signOut, useSession } from "next-auth/react";
+// Hooks
 import { useEffect, useState } from "react";
+// Atoms (Recoil)
 import { useRecoilState } from "recoil";
 import { playlistIdState } from "../atoms/playlistAtom";
+// Api
 import useSpotify from '../hooks/useSpotify';
 
 function Sidebar() {
     // Custom Hook 'useSpotify' enables to create spotifyApi inside this component
     const spotifyApi = useSpotify();
 
+    // Session
     const { data: session, status } = useSession();
 
     // States
     const [playlists, setPLaylists] = useState([]);
-    const [playlistId, setPlaylistId] = useRecoilState(playlistIdState);
+    const [playlistId, setPlaylistId] = useRecoilState(playlistIdState); 
 
     console.log("you picked playlist >>>", playlistId);
 

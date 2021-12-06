@@ -1,10 +1,17 @@
+// Heroicons Icons
 import { ChevronDownIcon } from "@heroicons/react/outline";
+// Session provider
 import { useSession } from "next-auth/react"
+// Hooks
 import { useEffect, useState } from "react";
+// Lodash lib
 import { shuffle } from "lodash";
+// Atoms (Recoil)
 import { useRecoilState, useRecoilValue } from "recoil";
 import { playlistIdState, playlistState } from "../atoms/playlistAtom";
+// Api
 import useSpotify from "../hooks/useSpotify";
+// Components
 import Songs from "./Songs";
 
 // Gradient colors from...to-black
@@ -19,8 +26,9 @@ const colors = [
 ];
 
 function Center() {
+    // Session
     const { data: session } = useSession();
-
+    // Custom Hook 'useSpotify' enables to create spotifyApi inside this component
     const spotifyApi = useSpotify();
 
     // States
