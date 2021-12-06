@@ -19,6 +19,9 @@ function Sidebar() {
 
     // States
     const [playlists, setPLaylists] = useState([]);
+    const [playlistId, setPlaylistId] = useState(null);
+
+    console.log("you picked playlist >>>", playlistId);
 
     // Hooks
     useEffect(() => {
@@ -62,7 +65,10 @@ function Sidebar() {
 
                 {
                     playlists.map((playlist) => (
-                        <p key={playlist.id} className="cursor-pointer hover:text-white">
+                        <p  
+                            onClick={() => setPlaylistId(playlist.id)}
+                            key={playlist.id} 
+                            className="cursor-pointer hover:text-white">
                             {playlist.name}
                         </p>
                     ))
